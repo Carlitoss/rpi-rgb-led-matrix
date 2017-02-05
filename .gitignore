@@ -8,3 +8,5 @@ text-example
 .idea/
 .env
 *.env
+.ftpconfig
+.ftpignore
