@@ -18,16 +18,6 @@ The LED-matrix library is (c) Henner Zeller <h.zeller@acm.org>, licensed with
 source and all your modifications available to the receiver of such product so
 that they have the freedom to adapt and improve).
 
-Note to Old Time Users: Several changes in defines and flags
-------------------------------------------------------------
-If you have checked out this library before, you might find that some
-files are re-organized in different directories (e.g. there is now a separation
-for library examples and utilities), and that the flags to binaries are now
-long and unified. Also, for the most part, you don't need to tweak paramters
-in `lib/Makefile` anymore as they are now exposed via command line flags.
-
-Choosing a different pinout, e.g. for the Adafruit HAT is also a little different.
-
 Overview
 --------
 The 32x32 or 16x32 RGB LED matrix panels can be scored at [Sparkfun][sparkfun],
@@ -86,11 +76,20 @@ This documentation is split into parts that help you through the process
     goes where. You might also be interested in [breakout boards](./adapter)
     for that. If you have an [Adafruit HAT], you can choose that with
     a command line option [described below](#if-you-have-an-adafruit-hat)
+  * Be sure audio is disabled (reference in troubleshooting)
+  * Install software dependencies in **[Raspbian Lite][raspbian-lite]**:
+```
+sudo apt-get update
+sudo apt-get install -y build-essential git libconfig++-dev
+# To display images in matrix also use this last line:
+# sudo apt-get install libgraphicsmagick++-dev libwebp-dev -y
+```
+ 
   * Run a demo. You find that in the
      [examples-api-use/](./examples-api-use#running-some-demos) directory:
 ```
 make -C examples-api-use
-sudo examples-api-use/demo -D0
+sudo examples-api-use/demo -D0 --led-rows=32 --led-chain=2
 ```
   * Use the utilities. The [utils](./utils) directory has some ready-made
     useful utilities to show image or text. [Go there](./utils) to see how to
